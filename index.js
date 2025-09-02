@@ -5,7 +5,10 @@ import adresse from './routes/adresse.route.js'
 import session from 'express-session'
 
 
+
 const app = express()
+
+
 
 // configurer la session
 app.use(session({ 
@@ -18,6 +21,9 @@ app.use(session({
 // utiliser le middleware body-parser
 app.use(express.urlencoded())
 
+// configurer les ressources statiques
+app.use(express.static('public'))
+
 
 // Mapping entre routes et le routeur
 app.use("/personne", personne)
@@ -26,8 +32,10 @@ app.use("/adresse", adresse)
 // Configuration du moteur de template
 app.set('view engine', 'ejs')
 app.set('views', import.meta.dirname + '/templates')
+
 // modifier le delimiter
 // app.set('view options', { delimiter: '?' })
+
 app.get(['/', '/home', '/accueil'], (req, res) => {
     // res.end("Hello world!")
     res.render('index',

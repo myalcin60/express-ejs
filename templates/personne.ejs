@@ -9,6 +9,15 @@
 
 <body>
   <h1>Gestion de personnes</h1>
+ <ul>
+    <% if (erreurs) { %>
+    <%  erreurs.forEach(err => { %>
+    <li style="color: red;">
+      <%= err %>
+    </li>
+    <% }) %>
+    <% } %>
+  </ul>
   <form action="/personne" method="post">
     <div>
       <label for="nom">Nom</label>
