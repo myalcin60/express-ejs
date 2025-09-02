@@ -2,11 +2,10 @@ import express from 'express'
 // ici, on gère les routes relatives  aux adresses
 const router = express.Router()
 
-router.get('/', (req, res) => {
- console.log("adresse");
-    res.end("adresse");
+router.get('/adresse', (req, res) => {
+
 })
-router.post('/', (req, res) => {
+router.post('/adresse', (req, res) => {
 
 })
 
