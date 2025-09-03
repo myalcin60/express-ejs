@@ -16,3 +16,5 @@ INSERT INTO personnes VALUES
 SELECT * FROM personnes
 
 DELETE FROM personnes where id=14
+
+UPDATE personnes SET non = ?, prenom=?, age=? WHERE id = ? ;

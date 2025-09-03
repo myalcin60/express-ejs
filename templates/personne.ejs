@@ -41,9 +41,11 @@
  <ul>
     <% personnes.forEach(p => { %>
         <% let link=`/personne/${p.id}` %>
+        <% let linkUpdate=`/personne/update/${p.id}` %>
         <li>
             <%= `${p.prenom} ${p.nom}` %>
             <a href="<%= link %>">supprimer</a>
+            <a href="<%= linkUpdate %>">Modifier</a>
         </li>
     <%})%>
   </ul>  
