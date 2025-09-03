@@ -1,11 +1,7 @@
-import yup from 'yup'
-import { setLocale } from 'yup'
-import { fr } from 'yup-locales'
+import yup from '../config/yup.config.js'
 import personneRepository from '../repositories/personne.repository.js'
 
 
-// configuer yup
-setLocale(fr)
 
 const personneSchema = yup.object().shape({
     nom: yup
@@ -62,11 +58,12 @@ const add = (req, res, next) => {
             }
            
         })
-        .catch(err => {
+        .catch(async err => {
             console.log(err);
+            const personnes = await personneRepository.findAll()
             res.render('personne', {
                 erreurs: err.errors,
-                personnes: [] // à refaire après l'ajout de PersonneRepository
+                personnes
             })
         })
 }
@@ -88,6 +85,7 @@ const remove = async (req, res, next) => {
 }
 
 const update = async(req, res, next)=>{
+
     const p = await personneRepository.update(req.body.nom, req.body.prenom, req.body.age, req.params.id)
     if (p == null) {
         res.render('personne',

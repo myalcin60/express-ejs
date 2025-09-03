@@ -1,4 +1,4 @@
-import connection from '../config/db.js'
+import connection from '../config/db.config.js'
 
 
 const findAll = async () => {
@@ -36,7 +36,7 @@ const deleteById = async (id) => {
     }
 }
 
-const update = async (nom, prenom, age, id) => {
+const update = async (nom, prenom, age, id) => {   
     try {
         const UPDATE = "UPDATE personnes SET nom = ?, prenom=?, age=? WHERE id = ?"
         const resultat = await connection.query(UPDATE, [nom, prenom, age, id]);

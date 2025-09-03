@@ -9,7 +9,7 @@
 
 <body>
   <h1>Gestion de personnes</h1>
- <ul>
+  <ul>
     <% if (erreurs) { %>
     <%  erreurs.forEach(err => { %>
     <li style="color: red;">
@@ -32,25 +32,23 @@
       <input type="number" id="age" name="age">
     </div>
     <div>
-        <button>
-            Envoyer
-        </button>
+      <button>
+        Envoyer
+      </button>
     </div>
     <div class="container">
-       <H3> Liste des personnes</H3>
- <ul>
-    <% personnes.forEach(p => { %>
+      <H3> Liste des personnes</H3>
+      <ul>
+        <% personnes.forEach(p => { %>
         <% let link=`/personne/${p.id}` %>
         <% let linkUpdate=`/personne/update/${p.id}` %>
         <li>
-            <%= `${p.prenom} ${p.nom}` %>
-            <a href="<%= link %>">supprimer</a>
-            <a href="<%= linkUpdate %>">Modifier</a>
+          <%= `${p.prenom} ${p.nom}` %>
+          <a href="<%= link %>">supprimer</a>
+          <a href="<%= linkUpdate %>">Modifier</a>
         </li>
-    <%})%>
-  </ul>  
-  
-      
+        <%})%>
+      </ul>
     </div>
   </form>
 </body>

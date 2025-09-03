@@ -8,7 +8,7 @@ const router = express.Router()
 router.get('/', PersonneController.show)
 router.post('/', PersonneController.add)
 router.get('/:id', PersonneController.remove)
-router.get('/:update/:id', PersonneController.update)
+router.get('/update/:id', PersonneController.update)
 
 export default router
 
